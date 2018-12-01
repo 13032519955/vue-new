@@ -1,7 +1,7 @@
-import Store from "../utils";
+import Store from '../utils'
 
-const crm =  Store("crm", {});
+const crm = Store('crm', {})
 
 export {
-    crm
+  crm
 }

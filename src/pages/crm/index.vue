@@ -1,12 +1,12 @@
 <template>
    <div>
-      build
+      crm
       <button @click='huan'>huan</button>
    </div>
 </template>
 <script>
 export default {
-  name: 'build',
+  name: 'crm',
   data: function () {
     return {}
   },
@@ -16,7 +16,7 @@ export default {
   },
   methods: {
     huan () {
-      this.$router.push({path: '/crm'})
+      this.$router.push({path: '/build'})
     }
   },
   components: {

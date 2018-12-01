@@ -1,7 +1,12 @@
 
+const Build = () => import(/* webpackChunkName: "group-build" */ '@/pages/build')
 export default [
-    {
-        path: 'crm', 
-        component: ''
+  // --------------build---------------
+  {
+    path: '/build',
+    component: Build,
+    meta: {
+      layout: 'no'
     }
+  }
 ]

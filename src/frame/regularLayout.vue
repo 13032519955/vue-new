@@ -1,23 +1,18 @@
 <template>
    <div>
-      build
-      <button @click='huan'>huan</button>
+       常规布局
+      <router-view></router-view>
    </div>
 </template>
 <script>
 export default {
-  name: 'build',
+  name: 'regular-layout',
   data: function () {
     return {}
   },
   computed: {
   },
   mounted: function () {
-  },
-  methods: {
-    huan () {
-      this.$router.push({path: '/crm'})
-    }
   },
   components: {
   }
