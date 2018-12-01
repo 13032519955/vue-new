@@ -1,14 +1,16 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
-import crm from './module/crm';
-import build from './module/build';
-Vue.use(Vuex);
+import Vue from 'vue'
+import Vuex from 'vuex'
+import * as crm from './module/crm'
+import * as build from './module/build'
+import * as sys from './module/sys'
+Vue.use(Vuex)
 
 const store = new Vuex.Store({
   modules: {
-      ...crm,
-      ...build
-  },
-});
+    ...crm,
+    ...build,
+    ...sys
+  }
+})
 
-export default store;
+export default store

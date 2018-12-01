@@ -1,13 +1,18 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <frame />
   </div>
 </template>
 
 <script>
+import Frame from '@/frame/frame'
 export default {
-  name: 'App'
+  name: 'App',
+  mounted () {
+  },
+  components: {
+    Frame
+  }
 }
 </script>
 
