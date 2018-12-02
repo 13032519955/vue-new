@@ -5,7 +5,9 @@
    </div>
 </template>
 <script>
+import page from 'page'
 export default {
+  mixins: [page],
   name: 'build',
   data: function () {
     return {}
@@ -13,6 +15,7 @@ export default {
   computed: {
   },
   mounted: function () {
+    this.showMsg({type: 'success', message: '啦啦啦啦'})
   },
   methods: {
     huan () {

@@ -1,5 +1,6 @@
 import config from '@/config/config'
 import { _ } from '@/utils/utils'
+import fetch from '@/fetch'
 // 生成一个公共的store
 const Store = (action, mergeData, preName = 'v1') => {
   var api = `${config.apis[preName]}/${action}`
