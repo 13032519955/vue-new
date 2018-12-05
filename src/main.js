@@ -18,6 +18,11 @@ let myPlugin = {}
 myPlugin.install = function (vue, options) {
 }
 
+Vue.config.errorHandler = function (err, vm, info) {
+  // handle error
+  throw new Error(err)
+}
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
