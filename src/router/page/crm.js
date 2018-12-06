@@ -1,5 +1,4 @@
-
-const Crm = () => import(/* webpackChunkName: "group-build" */ '@/pages/crm')
+const Crm = () => import(/* webpackChunkName: "group-crm" */ '@/pages/crm')
 export default [
   // --------------crm---------------
   {
