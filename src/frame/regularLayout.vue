@@ -1,6 +1,6 @@
 <template>
    <div>
-       常规布局 {{layoutLoading}}
+       常规布局
       <router-view v-loading='layoutLoading.value'></router-view>
    </div>
 </template>
