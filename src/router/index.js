@@ -20,9 +20,15 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   // 布局限定
   let curModuleLayOutName = to.meta.layout
+  store.dispatch('layLoading/changeValue', true)
   store.dispatch('sysLayoutName/changeValue', curModuleLayOutName || 'regular')
   next()
   // ...
+})
+
+router.afterEach((to, from) => {
+  // ...
+  store.dispatch('layLoading/changeValue', false)
 })
 
 export default router

@@ -1,5 +1,5 @@
 <template>
-   <div class='frame'> {{msgTip}}
+   <div class='frame'>
       <component :is='(layoutData.value || "regular") + "-layout"'></component>
    </div>
 </template>
