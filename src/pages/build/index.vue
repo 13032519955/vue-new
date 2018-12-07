@@ -1,6 +1,7 @@
 <template>
    <div>
       build
+      <el-button>1221212</el-button>
       <button @click='huan'>huan</button>
    </div>
 </template>

@@ -4,7 +4,7 @@ const Welcome = () => import(/* webpackChunkName: "group-welcome" */ '@/pages/we
 router.addRoutes([
   // --------------crm---------------
   {
-    path: '/welcome',
+    path: '/',
     component: Welcome
   }
 ])

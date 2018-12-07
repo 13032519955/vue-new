@@ -3,7 +3,7 @@ const Crm = () => import(/* webpackChunkName: "group-crm" */ '@/pages/crm')
 router.addRoutes([
   // --------------crm---------------
   {
-    path: '/crm',
+    path: '/',
     component: Crm
   }
 ])

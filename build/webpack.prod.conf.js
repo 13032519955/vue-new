@@ -10,7 +10,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-
+const vendors = {js: utils.assetsPath('js/vendor.js'), css: utils.assetsPath('css/vendor.css')};
 const env = require('../config/prod.env')
 
 const webpackConfig = merge(baseWebpackConfig, {
@@ -67,7 +67,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     // see https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
       filename: 'welcome.html',
-      template: 'welcome.html',
+      template: 'index.html',
       vendor: '/vendor.js',
       inject: true,
       minify: {
@@ -78,11 +78,15 @@ const webpackConfig = merge(baseWebpackConfig, {
         // https://github.com/kangax/html-minifier#options-quick-reference
       },
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-      chunksSortMode: 'dependency'
+      chunksSortMode: 'dependency',
+      vendors: vendors,
+      title: '欢迎',
+      chunks: ['welcome']
     }),
     new HtmlWebpackPlugin({
       filename: 'crm.html',
-      template: 'crm.html',
+      template: 'index.html',
+      title: 'crm',
       vendor: '/vendor.js',
       inject: true,
       minify: {
@@ -93,12 +97,15 @@ const webpackConfig = merge(baseWebpackConfig, {
         // https://github.com/kangax/html-minifier#options-quick-reference
       },
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-      chunksSortMode: 'dependency'
+      chunksSortMode: 'dependency',
+      vendors: vendors,
+      chunks: ['crm']
     }),
     new HtmlWebpackPlugin({
       filename: 'build.html',
-      template: 'build.html',
+      template: 'index.html',
       vendor: '/vendor.js',
+      title: 'build',
       inject: true,
       minify: {
         removeComments: true,
@@ -108,7 +115,9 @@ const webpackConfig = merge(baseWebpackConfig, {
         // https://github.com/kangax/html-minifier#options-quick-reference
       },
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-      chunksSortMode: 'dependency'
+      chunksSortMode: 'dependency',
+      vendors: vendors,
+      chunks: ['build']
     }),
     // keep module.id stable when vendor modules does not change
     new webpack.HashedModuleIdsPlugin(),

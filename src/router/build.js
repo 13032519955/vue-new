@@ -4,7 +4,7 @@ const Build = () => import(/* webpackChunkName: "group-build" */ '@/pages/build'
 router.addRoutes([
   // --------------crm---------------
   {
-    path: '/build',
+    path: '/',
     component: Build
   }
 ])
