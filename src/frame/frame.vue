@@ -5,6 +5,7 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
+
 export default {
   name: 'frame',
   data: function () {
@@ -18,6 +19,8 @@ export default {
   },
   mounted: function () {
     // this.$route对象在顶级视图中有一定的延迟，这里使用 vuex 配合路由导航守卫触发变更
+  },
+  methods: {
   },
   components: {
     RegularLayout: () => import('./regularLayout'),
