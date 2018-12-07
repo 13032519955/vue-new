@@ -9,13 +9,14 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
-
+const vendors = {js: utils.assetsPath('js/vendor.js'), css: utils.assetsPath('css/vendor.css')};
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 
 const devWebpackConfig = merge(baseWebpackConfig, {
+
   module: {
-    rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true })
+    rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true})
   },
   // cheap-module-eval-source-map is faster for development
   devtool: config.dev.devtool,
@@ -48,19 +49,43 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new webpack.DefinePlugin({
       'process.env': require('../config/dev.env')
     }),
+    new webpack.DllReferencePlugin({
+      context: path.resolve(__dirname, '.'),//__dirname,
+      manifest: require(path.join(__dirname, "manifest.json")),
+      name: 'vendor'
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
     new webpack.NoEmitOnErrorsPlugin(),
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
-      filename: 'index.html',
+      filename: 'welcome.html',
       template: 'index.html',
-      inject: true
+      title: '欢迎',
+      inject: true,
+      vendors: vendors,
+      chunks: ['welcome']
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'crm.html',
+      template: 'index.html',
+      inject: true,
+      vendors: vendors,
+      title: 'crm',
+      chunks: ['crm']
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'build.html',
+      template: 'index.html',
+      title: 'build',
+      vendors: vendors,
+      inject: true,
+      chunks: ['build']
     }),
     // copy custom static assets
     new CopyWebpackPlugin([
       {
-        from: path.resolve(__dirname, '../static'),
+        from: path.resolve(__dirname, '../dist/static'),
         to: config.dev.assetsSubDirectory,
         ignore: ['.*']
       }
