@@ -5,7 +5,10 @@ router.addRoutes([
   // --------------crm---------------
   {
     path: '/',
-    component: Welcome
+    component: Welcome,
+    meta: {
+      layout: 'no'
+    }
   }
 ])
 

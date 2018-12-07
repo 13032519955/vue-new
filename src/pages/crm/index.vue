@@ -1,7 +1,6 @@
 <template>
    <div>
-      crm
-      <button @click='huan'>huan</button>
+      crm系统页面
    </div>
 </template>
 <script>
@@ -15,9 +14,6 @@ export default {
   mounted: function () {
   },
   methods: {
-    huan () {
-      this.$router.push({path: '/build'})
-    }
   },
   components: {
   }

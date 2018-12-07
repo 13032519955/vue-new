@@ -1,7 +1,8 @@
 <template>
    <div>
-      welcome
-      <button @click='huan'>huan</button>
+      这是平台页面
+      <el-button @click='toCrm'>前往crm管理系统</el-button>
+      <el-button @click='toBuild'>前往施工管理系统</el-button>
    </div>
 </template>
 <script>
@@ -15,8 +16,12 @@ export default {
   mounted: function () {
   },
   methods: {
-    huan () {
-      this.$router.push({path: '/build'})
+    toCrm () {
+      location.href = '/crm.html'
+    },
+
+    toBuild () {
+      location.href = '/build.html'
     }
   },
   components: {
