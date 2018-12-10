@@ -64,6 +64,7 @@ import htmlCol from './cells/html_col'
 import operatorCol from './cells/operator_col'
 import priceCol from './cells/price_col'
 import txtCol from './cells/txt_col'
+import event_table from './event'
 export default {
   mixins: [grid, baseTable],
   name: 'table-e',
@@ -82,6 +83,7 @@ export default {
   },
   computed: {},
   mounted: function () {
+    event_table.$on('operator_click', (params) => { this.$emit('operator_click', params) })
   },
   components: {
     compsCol,
