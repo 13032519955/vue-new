@@ -37,8 +37,8 @@ const grid = {
   },
   computed: {},
   mounted: function () {
-      if(this.hash) this.setNewestParams()
-      this.load();
+    if (this.hash) this.setNewestParams()
+    this.load()
   },
   methods: {
     // 同步params

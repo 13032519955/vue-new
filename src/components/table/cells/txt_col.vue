@@ -6,7 +6,7 @@
 <script>
 import cell from './cell'
 export default {
-  mixins: [cell],
+  mixins: [ cell ],
   name: 'txt',
   data: function () {
     return {}

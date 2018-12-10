@@ -3,7 +3,13 @@
       这是平台页面
       <el-button @click='toCrm'>前往crm管理系统</el-button>
       <el-button @click='toBuild'>前往施工管理系统</el-button>
-      <table-e :headers='h' storeName='buildDemo'></table-e>
+      <table-e :headers='h' storeName='buildDemo'>
+          <template slot-scope='props'>
+              <div v-if="props.tplName == 'aa'">
+                  aaa
+              </div>
+          </template>
+      </table-e>
    </div>
 </template>
 <script>
@@ -14,7 +20,8 @@ export default {
   data: function () {
     return {
       h: [
-        {type: 'txt', label: '这是头', labelName: 'xx', adapter: (row) => row.xx*11}
+        {type: 'price', label: '这是头', labelName: 'xx', precision: 3},
+        {type: 'comps', label: '这是11头', labelName: 'xxx', tplName: 'aa'}
       ]
     }
   },

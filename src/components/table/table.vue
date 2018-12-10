@@ -37,7 +37,7 @@
                 <txt-col v-if='one.type === "txt"' :header='one' :row='scope.row'></txt-col>
                 <price-col v-else-if='one.type === "price"' :header='one' :row='scope.row'></price-col>
                 <date-col v-else-if='one.type === "date"' :header='one' :row='scope.row'></date-col>
-                <comps-col v-else-if='one.type === "comps"' :header='one' :row='scope.row'></comps-col>
+                <comps-col v-else-if='one.type === "comps"' :header='one' :row='scope.row' :slotRender="$scopedSlots.default"></comps-col>
                 <operator-col v-else-if='one.type === "operator"' :header='one' :row='scope.row'></operator-col>
                 <html-col v-else-if='one.type === "html"' :header='one' :row='scope.row'></html-col>
                 <txt-col v-else :header='one' :row='scope.row'></txt-col>
@@ -81,7 +81,8 @@ export default {
     }
   },
   computed: {},
-  mounted: function () {},
+  mounted: function () {
+  },
   components: {
     compsCol,
     dateCol,
