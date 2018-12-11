@@ -72,6 +72,8 @@
         operator_click: {row, button}
         // 选择动作
         selectChange： {row, selection}
+        // 数据加载成功
+        loadSuccess: data
     }
 **/
 import baseTable from './baseTable'

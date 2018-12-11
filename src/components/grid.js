@@ -45,9 +45,10 @@ const grid = {
     setNewestParams: function () {
       Object.assign(this.params, this.$router.query || {})
     },
-    load: function () {
+    load: async function  () {
       this.data = this.$store.getters[this.storeName + '/data']
-      this.$store.dispatch(this.storeName + '/getList', this.params)
+      await this.$store.dispatch(this.storeName + '/getList', this.params)
+      this.$emit('loadSuccess', this.data);
     },
     // 行点击
     rowClick: function (row, event, column) {
