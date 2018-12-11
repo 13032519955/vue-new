@@ -16,6 +16,23 @@
   </el-row>
 </template>
 <script>
+/**
+    @param {
+            label:'头', 
+            labelName:'参数名',
+            type: 'operator', 
+            
+            --------------------
+            buttons: [
+                {type: 'primary', size:'small', plain, round, circle ...}
+            ]
+            ---------or---------
+            adapterBtns: (row) => {
+                return [button]
+            }
+            --------------------
+           } : Object 
+**/
 import cell from './cell'
 import event_table from '../event'
 export default {

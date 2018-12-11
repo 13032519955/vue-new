@@ -4,6 +4,9 @@
   </div>
 </template>
 <script>
+/**
+    @param {label:'头', labelName:'参数名', type: 'price', precision: 2} : Object // precision 精度
+**/
 import cell from './cell'
 export default {
   mixins: [ cell ],

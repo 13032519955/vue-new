@@ -66,15 +66,15 @@ const table = {
   methods: {
     // 单项被选择
     selectItem (selection, row) {
-      this.$emit('selectChange', row, selection)
+      this.$emit('selectChange', {row, selection})
     },
     // 全选
     selectAll (selection) {
-      this.$emit('selectChange', null, selection)
+      this.$emit('selectChange', {selection})
     },
     // 复选变化
     selectionChange (selection) {
-      this.$emit('selectChange', null, selection)
+      this.$emit('selectChange', {selection})
     },
     // 排序发生变化
     sortChange (column, prop, order) {

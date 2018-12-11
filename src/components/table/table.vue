@@ -53,9 +53,27 @@
       </div>
       <slot></slot>
     </div>
+    <div class="table-pagination" style='margin-top: 20px;' v-if="pagination">
+      <el-pagination
+       @current-change="pageChange" 
+       :current-page="params.pageNo*1" 
+       :page-size="params.pageSize" 
+       layout="total,  prev, pager, next, jumper" 
+       :total="data.count">
+      </el-pagination>
+    </div>
   </div>
 </template>
 <script>
+/**
+*   @param {headers: Array}
+*   @event {
+        // header的type为operator的时候， button点击事件
+        operator_click: {row, button}
+        // 选择动作
+        selectChange： {row, selection}
+    }
+**/
 import baseTable from './baseTable'
 import grid from '../grid'
 import compsCol from './cells/comps_col'
@@ -72,14 +90,11 @@ export default {
     return {}
   },
   methods: {
-    adapterData: function (h, data) {
-      if (!data) return ''
-      let v = data[h.labelName]
-      if (h.adapter && h.adapter.constructor === Function) {
-        v = h.adapter(data)
+      pageChange(page) {
+          this.params.pageNo -= this.params.pageNo;
+          this.load();
+          if(this.hash) this.$router.replace({path: this.$router.path, query: this.params});
       }
-      return v
-    }
   },
   computed: {},
   mounted: function () {

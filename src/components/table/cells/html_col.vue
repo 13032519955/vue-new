@@ -3,6 +3,9 @@
   </div>
 </template>
 <script>
+/**
+    @param {label:'头', labelName:'参数名', type: 'html'} : Object
+**/
 import cell from './cell'
 export default {
   mixins: [ cell ],
