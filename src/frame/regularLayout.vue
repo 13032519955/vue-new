@@ -38,7 +38,10 @@ export default {
 </script>
 <style scoped>
 .regular_header {
-  background-color: rgb(84, 92, 100); color: white;line-height: 60px;
+  background-color: rgb(71, 74, 76); 
+  color: white;
+  line-height: 60px;
+  text-align: left;
 }
 .containerIn {
   height: calc(100% - 60px);

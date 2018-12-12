@@ -1,11 +1,11 @@
 <template>
     <el-menu
       default-active="2"
-      class='full_height'
+      class='full_height el-menu-vertical-demo'
       @open="handleOpen"
-      @close="handleClose"
-      background-color="#545c64"
-      text-color="#fff"
+      @close="handleClose" 
+      background-color="rgb(245, 250, 255)"
+      text-color="rgb(71, 74, 76)"
       active-text-color="#ffd04b">
       <el-submenu index="1">
         <template slot="title">
@@ -59,4 +59,9 @@ export default {
 };
 </script>
 <style>
+.el-menu-vertical-demo {
+    width: 100%;
+    display: inline-block;
+    text-align: left;
+}
 </style>
