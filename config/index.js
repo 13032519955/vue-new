@@ -72,5 +72,11 @@ module.exports = {
     // `npm run build --report`
     // Set to `true` or `false` to always turn it on or off
     bundleAnalyzerReport: process.env.npm_config_report
-  }
+  },
+
+  entry: [
+    {name: 'welcome', title:'欢迎页面'},
+    {name: 'crm', title:'客户管理'},
+    {name: 'build', title:'施工管理'}
+  ]
 }

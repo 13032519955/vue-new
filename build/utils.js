@@ -3,7 +3,7 @@ const path = require('path')
 const config = require('../config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const packageConfig = require('../package.json')
-
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 exports.assetsPath = function (_path) {
   const assetsSubDirectory = process.env.NODE_ENV === 'production'
     ? config.build.assetsSubDirectory
@@ -98,4 +98,47 @@ exports.createNotifierCallback = () => {
       icon: path.join(__dirname, 'logo.png')
     })
   }
+}
+
+exports.entrySet = () => {
+  var remain = JSON.parse(process.env.npm_config_argv).remain[0] || ''
+  var npm_args = remain===''? [] : remain.split(',');
+  var entry = {};
+  if(npm_args.length == 0) {
+    config.entry.map(one => {
+      entry[one.name + '/index'] = `./src/main/${one.name}.js`
+    })
+  }
+  else npm_args.map(arg => {
+    entry[arg + '/index'] =  `./src/main/${arg}.js`
+  })
+  return entry;
+}
+
+exports.htmlEntries = () => {
+  var vendors = {js: '/vendor.js', css: '/vendor.css'};
+  var entryMap = this.entrySet();
+  config.entry.map(one => {
+     entryMap[one.name + '/index']? entryMap[one.name + '/index'] = one.title:''
+  })
+  let htmlPlugins = [];
+  for(let k in entryMap) {
+    htmlPlugins.push(
+      new HtmlWebpackPlugin({
+        filename: k+'.html',
+        template: 'index.html',
+        inject: true,
+        // minify: {
+        //   removeComments: true,
+        //   collapseWhitespace: true,
+        //   removeAttributeQuotes: true
+        // },
+        chunksSortMode: 'dependency',
+        vendors: vendors,
+        title: entryMap[k],
+        chunks: [k]
+      })
+    );
+  }
+  return htmlPlugins
 }

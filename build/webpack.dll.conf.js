@@ -22,7 +22,7 @@ module.exports = {
   },
   output: {
     path: config.build.assetsRoot,
-    filename: utils.assetsPath('js/[name].js'),
+    filename: '[name].js',
     library: '[name]'
   },
   module: {
@@ -43,7 +43,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin(utils.assetsPath('css/vendor.css')),
+    new ExtractTextPlugin('vendor.css'),
      new webpack.DllPlugin({
          context: path.resolve(__dirname, '.'),//__dirname,
          name: "vendor",

@@ -37,11 +37,11 @@ export default {
   },
   methods: {
     toCrm () {
-      location.href = '/crm.html'
+      location.href = '/crm'
     },
 
     toBuild () {
-      location.href = '/build.html'
+      location.href = '/build'
     },
 
     operator_click(params) {
