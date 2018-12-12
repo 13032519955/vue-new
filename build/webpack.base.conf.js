@@ -3,11 +3,9 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
-
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
-
 const createLintingRule = () => ({
   test: /\.(js|vue)$/,
   loader: 'eslint-loader',
@@ -18,20 +16,33 @@ const createLintingRule = () => ({
     emitWarning: !config.dev.showEslintErrorsInOverlay
   }
 })
-
+// var remain = JSON.parse(process.env.npm_config_argv).remain[0] || ''
+// var npm_args = remain===''? [] : remain.split(',');
+// var entry = {};
+// if(npm_args.length == 0) {
+//   entry = {
+//     'welcome/index': './src/main/welcome.js',
+//     'crm/index' : './src/main/crm.js',
+//     'build/index': './src/main/build.js'
+//   }
+// }
+// else npm_args.map(arg => {
+//   entry[arg + '/index'] =  `./src/main/${arg}.js`
+// })
 module.exports = {
   context: path.resolve(__dirname, '../'),
-  entry: {
-    welcome: './src/main/welcome.js',
-    crm: './src/main/crm.js',
-    build: './src/main/build.js'
-  },
+  entry: utils.entrySet(),
+  // entry: {
+  //   welcome: './src/main/welcome.js',
+  //   crm: './src/main/crm.js',
+  //   build: './src/main/build.js'
+  // },
   output: {
-    path: config.build.assetsRoot,
-    filename: '[name].js',
-    publicPath: process.env.NODE_ENV === 'production'
-      ? config.build.assetsPublicPath
-      : config.dev.assetsPublicPath
+    'path': config.build.assetsRoot,
+    filename: '[name].js'
+    // publicPath: process.env.NODE_ENV === 'production'
+    //   ? config.build.assetsPublicPath
+    //   : config.dev.assetsPublicPath
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],

@@ -5,12 +5,13 @@ import App from './App'
 import store from '../store'
 import router from '../router/build'
 import baseMixins from '@/mixins/base'
+import * as filters from '../filters'
 import ElementUI from 'element-ui'
 
 Vue.use(ElementUI)
 
 Vue.config.productionTip = false
-
+Object.keys(filters).forEach(key => { Vue.filter(key, filters[key]) })
 Vue.mixin(baseMixins)
 
 let myPlugin = {}
