@@ -29,4 +29,8 @@ export default {
 }
 </script>
 <style>
+.frame {
+  height: 100%;
+  width: 100%;
+}
 </style>

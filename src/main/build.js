@@ -22,12 +22,11 @@ Vue.config.errorHandler = function (err, vm, info) {
   // handle error
   throw new Error(err)
 }
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
   store,
   components: { App },
-  template: '<App/>'
+  template: '<App app-name="build"  />'
 })
