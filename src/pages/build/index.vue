@@ -1,8 +1,6 @@
 <template>
    <div>
-      build
-      <el-button>1221212</el-button>
-      <button @click='huan'>huan</button>
+      build系统页面
    </div>
 </template>
 <script>
@@ -19,9 +17,6 @@ export default {
     this.showMsg({type: 'success', message: '啦啦啦啦'})
   },
   methods: {
-    huan () {
-      this.$router.push({path: '/crm'})
-    }
   },
   components: {
   }
