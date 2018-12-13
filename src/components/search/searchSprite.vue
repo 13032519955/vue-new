@@ -10,7 +10,7 @@
         </el-input>
         <!--select {key, placeholder, valueKey 默认都为绑定对象类型, size, keyName 指定options的value, labelName 指定options的key, options: Array<object | {value, label}> }-->
         <el-select 
-            v-if="formOne.type === 'select'"
+            v-else-if="formOne.type === 'select'"
             v-model="params[formOne.key]" 
             :value-key='formOne.valueKey || "value"' 
             @change='(item) => {changeHandler(item, formOne)}' 
@@ -27,7 +27,7 @@
         <el-date-picker 
             style='width: 100%' 
             :placeholder="formOne.placeholder  || '请选择日期'" 
-            v-if="formOne.type === 'dateRange'" 
+            v-else-if="formOne.type === 'dateRange'" 
             :size='formOne.size || "small"'
             :value-format='formOne.format || "yyyy-MM-dd"' 
             v-model="dateValue" 
@@ -40,7 +40,7 @@
         
         <el-date-picker 
             v-model="params[formOne.key]" 
-            v-if="formOne.type === 'month' || formOne.type === 'year'" 
+            v-else-if="formOne.type === 'month' || formOne.type === 'year'" 
             :value-format='formOne.format || "yyyy-MM-dd"'
             :type="formOne.type" 
             placeholder="选择日期">
