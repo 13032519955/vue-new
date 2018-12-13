@@ -76,7 +76,7 @@ module.exports = {
 
   entry: [
     {name: 'welcome', title:'欢迎页面'},
-    {name: 'crm', title:'客户管理'},
-    {name: 'build', title:'施工管理'}
+    {name: 'crm', title:'客户管理系统'},
+    {name: 'build', title:'施工管理系统'}
   ]
 }

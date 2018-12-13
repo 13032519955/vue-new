@@ -3,7 +3,9 @@ import { _ } from '@/utils/utils'
 import fetch from '@/fetch'
 // 生成一个公共的store
 const Store = (action, mergeData, preName = 'v1') => {
-  var api = `${config.apis[preName]}/${action}`
+  var api = '';
+  if (action.indexOf('http://') != -1 || action.indexOf('https://') != -1) api = action
+  else api = `${config.apis[preName]}/${action}`
   const store = {
     namespaced: true,
     strict: process.env.NODE_ENV !== 'production',
@@ -79,11 +81,11 @@ const Store = (action, mergeData, preName = 'v1') => {
       // 获取列表数据
       getList ({ state, commit }, params = {}) {
         commit('changeLoading', true)
-        if (!params.pageSize) {
-          Object.assign(params, { pageSize: 20 })
+        if (!params.size) {
+          Object.assign(params, { size: 20 })
         }
-        if (!params.pageNo) {
-          Object.assign(params, { pageNo: 1 })
+        if (!params.page) {
+          Object.assign(params, { page: 1 })
         }
         return fetch
           .get(api, params)
