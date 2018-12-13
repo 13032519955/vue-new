@@ -1,5 +1,5 @@
 <template>
-  <div v-loading="data.loading" v-if='!!data'>{{data}}
+  <div v-loading="data.loading" v-if='!!data'>
     <div>
       <div class="table-e">
         <el-table
@@ -92,11 +92,11 @@ export default {
     return {}
   },
   methods: {
-      pageChange(page) {
-          this.params.pageNo -= this.params.pageNo;
-          this.load();
-          if(this.hash) this.$router.replace({path: this.$router.path, query: this.params});
-      }
+    pageChange(page) {
+      this.params.pageNo -= this.params.pageNo;
+      this.load();
+      if(this.hash) this.$router.replace({path: this.$router.path, query: this.params});
+    }
   },
   computed: {},
   mounted: function () {
