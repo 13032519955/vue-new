@@ -5,7 +5,6 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
-
 export default {
   name: 'frame',
   data: function () {
@@ -29,4 +28,8 @@ export default {
 }
 </script>
 <style>
+.frame {
+  height: 100%;
+  width: 100%;
+}
 </style>

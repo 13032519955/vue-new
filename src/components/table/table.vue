@@ -1,5 +1,5 @@
 <template>
-  <div v-loading="data.loading" v-if='!!data'>{{data}}
+  <div v-loading="data.loading" v-if='!!data'>
     <div>
       <div class="table-e">
         <el-table
@@ -53,13 +53,13 @@
       </div>
       <slot></slot>
     </div>
-    <div class="table-pagination" style='margin-top: 20px;' v-if="pagination">
+    <div class="table-pagination" style='margin-top: 20px;' v-if="pagination && !!data">
       <el-pagination
        @current-change="pageChange" 
-       :current-page="params.pageNo*1" 
-       :page-size="params.pageSize" 
+       :current-page = "params.page*1" 
+       :page-size="params.size*1" 
        layout="total,  prev, pager, next, jumper" 
-       :total="data.count">
+       :total="total">
       </el-pagination>
     </div>
   </div>
@@ -89,14 +89,16 @@ export default {
   mixins: [grid, baseTable],
   name: 'table-e',
   data: function () {
-    return {}
+    return {
+      total: 100
+    }
   },
   methods: {
-      pageChange(page) {
-          this.params.pageNo -= this.params.pageNo;
-          this.load();
-          if(this.hash) this.$router.replace({path: this.$router.path, query: this.params});
-      }
+    pageChange(page) {
+      this.params.page = page;
+      this.load();
+      if(this.hash) this.$router.replace({path: this.$router.path, query: this.params});
+    }
   },
   computed: {},
   mounted: function () {
