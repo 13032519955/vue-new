@@ -1,9 +1,9 @@
 <template>
-    <el-form :model="params" label-width="100px" ref="sForm" label-position="right" v-if='options.length != 0'>
+    <el-form :model="params" label-width="100px" ref="sForm" label-position="right">{{options}}
       <slot></slot>
       <el-row v-for='i in rows' :key='i' :gutter="20">
-        <el-col v-for='j in cols' :key='j' :span="spanGet" v-if='options[cols*(i-1) + (j-1)]'>
-          <search-sprite :params='params' :form-one='options[cols*(i-1) + (j-1)]'></search-sprite>
+        <el-col v-for='j in cols' :key='j' :span="spanGet" v-if='options[cols*i + (j-1)]'>
+          <search-sprite :params='params' :form-one='options[cols*i + (j-1)]'></search-sprite>
         </el-col>
       </el-row>
     </el-form>
@@ -36,12 +36,12 @@ export default {
   name: 'search-comps',
   computed: {
       spanGet() {
-          return Math.ceil(24 / this.cols)
+          return Math.ceil(24 / this.col)
       }
   },
   data: function() {
     return {
-      rows: Math.ceil(this.options.length / this.cols),
+      rows: Math.ceil(this.options.length / this.col),
       tableRef: null
     }
   },

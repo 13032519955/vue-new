@@ -25,7 +25,7 @@ instanceAxios.interceptors.response.use(
     return Promise.reject(error)
   }
 )
-instanceAxios.defaults.withCredentials = true
+instanceAxios.defaults.withCredentials = false
 instanceAxios.defaults.timeout = 115000
 
 const http = {

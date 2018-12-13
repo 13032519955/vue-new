@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-form-item :label="formOne.label">
+    <el-form-item :label="formOne.label"> 
         <!--input {key, placeholder, size}-->
         <el-input 
             v-if="!formOne.type" 

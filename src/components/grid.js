@@ -50,11 +50,13 @@ const grid = {
   methods: {
     // 同步params
     setNewestParams: function () {
-      Object.assign(this.params, this.$router.query || {})
+      Object.assign(this.params, this.$route.query || {})
     },
     load: async function  (params) {
       this.data = this.$store.getters[this.storeName + '/data']
       await this.$store.dispatch(this.storeName + '/getList', Object.assign(this.params, params))
+      // 注： 饿了么的分页器 异步读取total之后 current-page不生效 
+      this.total = this.data.count*1;
       this.$emit('loadSuccess', this.data);
     },
     // 行点击
