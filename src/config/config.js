@@ -4,5 +4,5 @@ export default {
     v2: 'v2'
   },
 
-  publicPath: 'https://davych.github.io/vue-new/dist/'
+  publicPath: process.env.NODE_ENV !== 'production'? '/' : 'https://davych.github.io/vue-new/dist/'
 }
