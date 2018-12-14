@@ -9,6 +9,7 @@
   </el-container>
 </template>
 <script>
+import config from '@/config/config'
 export default {
   name: 'welcome',
   data: function () {
@@ -31,7 +32,7 @@ export default {
   },
   methods: {
     btnClick(one) {
-      location.href = one.url
+      location.href = config.publicPath + one.url + '/index.html#/'
     }
   },
   components: {

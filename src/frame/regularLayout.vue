@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     backHandler() {
-      location.href = '/welcome'
+      window.history.back()
     }
   },  
   components: {

@@ -116,7 +116,10 @@ exports.entrySet = () => {
 }
 
 exports.htmlEntries = () => {
-  var vendors = {js: '/vendor.js', css: '/vendor.css'};
+  var pp =  process.env.NODE_ENV === 'production'
+  ? config.build.assetsPublicPath
+  : config.dev.assetsPublicPath;
+  var vendors = {js: pp + 'vendor.js', css: pp + 'vendor.css'};
   var entryMap = this.entrySet();
   config.entry.map(one => {
      entryMap[one.name + '/index']? entryMap[one.name + '/index'] = one.title:''
