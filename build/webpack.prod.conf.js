@@ -10,7 +10,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const env = require('../config/prod.env')
-
 const webpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({
@@ -23,7 +22,8 @@ const webpackConfig = merge(baseWebpackConfig, {
   output: {
     path: config.build.assetsRoot,
     filename: '[name].[chunkhash].js',
-    chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
+    chunkFilename: utils.assetsPath('js/[id].[chunkhash].js'),
+    publicPath:"/"
   },
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
@@ -55,6 +55,12 @@ const webpackConfig = merge(baseWebpackConfig, {
         ? { safe: true, map: { inline: false } }
         : { safe: true }
     }),
+    
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name: 'manifest',
+    //   minChunks: Infinity
+    // }),
+
     new webpack.DllReferencePlugin({
       context: path.resolve(__dirname, '.'),//__dirname,
       manifest: require(path.join(__dirname, "manifest.json")),
@@ -62,13 +68,9 @@ const webpackConfig = merge(baseWebpackConfig, {
     }),
     ...utils.htmlEntries(),
     // keep module.id stable when vendor modules does not change
-    new webpack.HashedModuleIdsPlugin(),
+    // new webpack.HashedModuleIdsPlugin(),
     // enable scope hoisting
-    new webpack.optimize.ModuleConcatenationPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'manifest',
-      minChunks: Infinity
-    }),
+    // new webpack.optimize.ModuleConcatenationPlugin(),
     // copy custom static assets
     new CopyWebpackPlugin([
       {

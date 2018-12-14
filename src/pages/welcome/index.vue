@@ -15,7 +15,13 @@ export default {
     return {
       apps: [
         {appName:'客户管理系统', url:'/crm', icon:''},
-        {appName:'施工管理系统', url:'/build', icon: ''}
+        {appName:'施工管理系统', url:'/build', icon: ''},
+        {appName:'地采管理系统', url:'/', icon: ''},
+        {appName:'服务商管理系统', url:'/', icon: ''},
+        {appName:'会员管理系统', url:'/', icon: ''},
+        {appName:'BI统计', url:'/', icon: ''},
+        {appName:'TMS系统', url:'/', icon: ''},
+        {appName:'下单系统', url:'/', icon: ''}
       ]
     }
   },
@@ -41,5 +47,6 @@ export default {
 .welcome_item {
   height: 200px;
   width: 200px;
+  margin-bottom: 10px;
 }
 </style>
