@@ -6,6 +6,8 @@
 
 <script>
 import Frame from '@/frame/frame'
+import menuMap from '@/config/menuMap'
+import { mapActions } from 'vuex'
 export default {
   name: 'App',
   props: {
@@ -15,6 +17,12 @@ export default {
     }
   },
   mounted () {
+    this.appMenusSet(menuMap[this.appName] || [])
+  },
+  methods: {
+    ...mapActions({
+      appMenusSet: 'appMenus/changeData'
+    })
   },
   components: {
     Frame

@@ -11,8 +11,10 @@ const sysMsg = Store('sysMsg', {
     }
   }
 })
+// app菜单数据
+const appMenus = Store('appMenus', {})
 //  布局下视图挂载点loading控制
 const layLoading = Store('layLoading', {})
 export {
-  sysLayoutName, sysMsg, layLoading
+  sysLayoutName, sysMsg, appMenus, layLoading
 }

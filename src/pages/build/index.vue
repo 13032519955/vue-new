@@ -1,6 +1,6 @@
 <template>
    <div>
-      build系统页面
+      欢迎访问施工管理系统
    </div>
 </template>
 <script>
@@ -14,7 +14,7 @@ export default {
   computed: {
   },
   mounted: function () {
-    this.showMsg({type: 'success', message: '啦啦啦啦'})
+    // this.showMsg({type: 'success', message: '啦啦啦啦'})
   },
   methods: {
   },

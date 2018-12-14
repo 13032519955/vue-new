@@ -12,7 +12,11 @@ const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 
 const devWebpackConfig = merge(baseWebpackConfig, {
-
+  output: {
+    path: config.build.assetsRoot,
+    filename: '[name].[hash].js',
+    chunkFilename: utils.assetsPath('js/[id].[hash].js')
+  },
   module: {
     rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true})
   },
