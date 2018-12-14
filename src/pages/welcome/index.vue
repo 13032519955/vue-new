@@ -15,8 +15,8 @@ export default {
   data: function () {
     return {
       apps: [
-        {appName:'客户管理系统', url:'/crm', icon:''},
-        {appName:'施工管理系统', url:'/build', icon: ''},
+        {appName:'客户管理系统', url:'crm', icon:''},
+        {appName:'施工管理系统', url:'build', icon: ''},
         {appName:'地采管理系统', url:'/', icon: ''},
         {appName:'服务商管理系统', url:'/', icon: ''},
         {appName:'会员管理系统', url:'/', icon: ''},
